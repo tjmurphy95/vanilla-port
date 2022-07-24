@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dev Tom</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Jost", sans-serif;
+        transition-duration: 300ms;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-color: #0f172a;
+        color: white;
+      }
+      header {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      header div {
+        display: flex;
+        gap: 20px;
+      }
+
+      header h1 {
+        font-family: "Oswald", sans-serif;
+        font-size: 4rem;
+        user-select: none;
+      }
+      header div h1:first-child {
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 1.5px white;
+      }
+      header ul {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      header ul li {
+        list-style: none;
+        font-size: 1em;
+        padding: 10 0px;
+        user-select: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      header ul li::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 1px;
+        background-color: white;
+        right: 100%;
+        bottom: 0;
+        transition-duration: 300ms;
+      }
+      header ul li:hover::after {
+        transform: translateX(100%);
+      }
+      header a {
+        color: inherit;
+        text-decoration: none;
+      }
+      section {
+        min-height: 100vh;
+        padding: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      /* alternate colors in different sections */
+      section:nth-child(2n) {
+        background: white;
+        color: #0f172a;
+      }
+
+      .section-header {
+        width: fit-content;
+        margin: 0 auto;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: "Oswald", sans-serif;
+        position: relative;
+        padding: 4px 10px;
+        width: 100%;
+        max-width: 85ch;
+        margin: 0 auto;
+      }
+      .section-header::before,
+      .section-header::after {
+        content: "";
+        position: absolute;
+        width: 100vw;
+        height: 1px;
+        background: #0f172a;
+      }
+      .section-header::before {
+        right: 0;
+        top: 0;
+      }
+      .section-header::after {
+        left: 0;
+        bottom: 0;
+      }
+
+      section:nth-child(2n + 1) .section-header::before,
+      section:nth-child(2n + 1) .section-header::after {
+        background: white;
+      }
+
+      .section-wrapper {
+        width: 100%;
+        max-width: 75ch;
+        margin: 0 auto;
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+      }
+      .section-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        text-align: left;
+        font-size: 0.8em;
+      }
+      .exp-header {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+      }
+
+      .exp-header h2 {
+        font-weight: 500;
+      }
+      .exp-subheader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #cbd5e1;
+      }
+
+      .resume-item > p {
+        padding: 2px 0;
+        color: aliceblue;
+      }
+
+      .project-grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .project-item {
+        box-shadow: 0 0 4px 1px lightgray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .project-item:hover {
+        box-shadow: 0 0 4px 2px #0f172a;
+      }
+
+      .project-grid img {
+        width: 100%;
+        /* object-fit: cover; */
+      }
+      .img-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(to bottom, transparent, #0f172a);
+        padding: 20px 12px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.9em;
+      }
+      .img-text h4 {
+        font-weight: 400;
+        text-transform: uppercase;
+        font-family: "Oswald", san;
+      }
+      .project-links {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .project-links a {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        user-select: none;
+        background: #0f172a;
+        padding: 6px 2px;
+        gap: 6px;
+        font-weight: 300;
+        text-decoration: none;
+        color: inherit;
+        border: 1px solid white;
+      }
+
+      .project-links a:hover {
+        transform: scale(1.1);
+      }
+      .project-links i {
+        font-size: 0.8em;
+        padding-left: 2px;
+      }
+
+      footer {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        align-items: center;
+        padding: 10px 0;
+      }
+
+      footer a {
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      footer a:hover {
+        transform: rotate(45deg);
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>DEV</h1>
+        <h1>TOM</h1>
+      </div>
+      <ul>
+        <li>
+          <a href="#about-me">About Me</a>
+        </li>
+        <li>
+          <a href="#experience">Experience</a>
+        </li>
+        <li>
+          <a href="#projects">Projects</a>
+        </li>
+      </ul>
+    </header>
+    <main>
+      <nav></nav>
+      <section id="about-me">
+        <h2 class="section-header">About Me</h2>
+        <div class="section-wrapper">
+          <div class="section-content">
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla,
+              tenetur. Esse, praesentium sit laboriosam, molestias incidunt
+              tempore fugiat impedit nisi dolorem repellendus dolorum dolor
+              maiores maxime blanditiis sed quas consequuntur!
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut amet
+              ducimus voluptate praesentium dolorem. Sed consequatur quibusdam
+              rem non sint.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2 class="section-header">Experience</h2>
+        <div class="section-wrapper">
+          <div class="section-content">
+            <div class="resume-item">
+              <div class="exp-header">
+                <h2>Full Stack Dev</h2>
+                <div class="exp-subheader">
+                  <p>Example text</p>
+                  <p>dates go here - dates go here</p>
+                </div>
+              </div>
+              <p>I made a full stack etc etc</p>
+            </div>
+            <div class="resume-item">
+              <div class="exp-header">
+                <h2>Full Stack Dev</h2>
+                <div class="exp-subheader">
+                  <p>Example text</p>
+                  <p>dates go here - dates go here</p>
+                </div>
+              </div>
+              <p>I made a full stack etc etc</p>
+            </div>
+            <div class="resume-item">
+              <div class="exp-header">
+                <h2>Full Stack Dev</h2>
+                <div class="exp-subheader">
+                  <p>Example text</p>
+                  <p>dates go here - dates go here</p>
+                </div>
+              </div>
+              <p>I made a full stack etc etc</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="projects">
+        <h2 class="section-header">Projects</h2>
+        <div class="section-wrapper">
+          <div class="project-grid">
+            <div class="project-item">
+              <img src="/public/xx.png" alt="example1" />
+              <div class="img-text">
+                <h4>Covid Dashboard</h4>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/tjmurphy95/covid-dashboard"
+                    target="_blank"
+                  >
+                    <p>source</p>
+                    <i class="fa-solid fa-code"></i>
+                  </a>
+                  <a
+                    href="https://covid-dashboard-teal.vercel.app/"
+                    target="_blank"
+                  >
+                    <p>live</p>
+                    <i class="fa-solid fa-bolt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-item">
+              <img src="/public/xx.png" alt="Covid Dashboard" />
+              <div class="img-text">
+                <h4>Stock App</h4>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/tjmurphy95/covid-dashboard"
+                    target="_blank"
+                  >
+                    <p>source</p>
+                    <i class="fa-solid fa-code"></i>
+                  </a>
+                  <a
+                    href="https://covid-dashboard-teal.vercel.app/"
+                    target="_blank"
+                  >
+                    <p>live</p>
+                    <i class="fa-solid fa-bolt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-item">
+              <img src="/public/xx.png" alt="Polling App" />
+              <div class="img-text">
+                <h4>Polling App</h4>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/tjmurphy95/covid-dashboard"
+                    target="_blank"
+                  >
+                    <p>source</p>
+                    <i class="fa-solid fa-code"></i>
+                  </a>
+                  <a
+                    href="https://covid-dashboard-teal.vercel.app/"
+                    target="_blank"
+                  >
+                    <p>live</p>
+                    <i class="fa-solid fa-bolt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="#"><i class="fa-brands fa-github"></i></a>
+    </footer>
+  </body>
+</html>
