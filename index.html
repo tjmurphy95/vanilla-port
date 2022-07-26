@@ -102,6 +102,7 @@
         color: #0f172a;
       }
 
+
       .section-header {
         width: fit-content;
         margin: 0 auto;
@@ -151,6 +152,16 @@
         flex-direction: column;
         gap: 20px;
         text-align: left;
+        font-size: 0.8em;
+      }
+      .section-content-center {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        text-align: center;
         font-size: 0.8em;
       }
       .exp-header {
@@ -262,6 +273,63 @@
         opacity: 0.5;
       }
 
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        width: 90vw;
+        max-width: 800px;
+      }
+      form div {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #0f172a;
+      }
+      form div input {
+        width: 90%;
+        color: black;
+        border: none;
+        padding: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.2rem;
+        margin: 18px auto;
+      }
+      form div textarea {
+        width: 90%;
+        color: black;
+        border: none;
+        padding: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.2rem;
+        margin: 18px auto;
+      }
+      form div label {
+        flex-basis: 10%;
+        border: none;
+      }
+
+
+
+
+      /* .form-item label{
+        flex-basis: 5%;
+        gap: 5px;
+      }
+      .form-item input{
+        flex-basis: 95%;
+      }
+      .form-item textarea{
+        flex-basis: 95%;
+      } */
+
+
       @media (min-width: 640px) {
         header h1 {
           font-size: 6em;
@@ -299,12 +367,13 @@
         <li>
           <a href="#about-me">About Me</a>
         </li>
-        <li>
-          <a href="#experience">Experience</a>
-        </li>
+        
         <li>
           <a href="#projects">Projects</a>
         </li>
+        <li>
+            <a href="#contact">Contact</a>
+          </li>
       </ul>
     </header>
     <main>
@@ -313,22 +382,27 @@
         <h2 class="section-header">About Me</h2>
         <div class="section-wrapper">
           <div class="section-content">
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla,
-              tenetur. Esse, praesentium sit laboriosam, molestias incidunt
-              tempore fugiat impedit nisi dolorem repellendus dolorum dolor
-              maiores maxime blanditiis sed quas consequuntur!
+            <p>Hi</p>
+            <p>My name is Tom and I am a Full Stack Developer. Originally qualified as an electrical engineer, I realised my passion for programming and have since pursued a career in the industry, creating a number of unique and exciting web applications.
             </p>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut amet
-              ducimus voluptate praesentium dolorem. Sed consequatur quibusdam
-              rem non sint.
+                I love being able to express my creativity through my internet creations.
             </p>
+            <p>
+                I'm currently utilisign the following technologies:
+            </p>
+            <ul>
+                <li>HTML5</li>
+                <li>CSS</li>
+                <li>TailwindCSS</li>
+                <li>Node.js</li>
+                <li>Firebase/Firestore</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      <section id="experience">
+      <!-- <section id="experience">
         <h2 class="section-header">Experience</h2>
         <div class="section-wrapper">
           <div class="section-content">
@@ -364,13 +438,13 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
       <section id="projects">
         <h2 class="section-header">Projects</h2>
         <div class="section-wrapper">
           <div class="project-grid">
             <div class="project-item">
-              <img src="/public/xx.png" alt="example1" />
+              <img src="/public/covid.png" alt="example1" />
               <div class="img-text">
                 <h4>Covid Dashboard</h4>
                 <div class="project-links">
@@ -392,29 +466,7 @@
               </div>
             </div>
             <div class="project-item">
-              <img src="/public/xx.png" alt="Covid Dashboard" />
-              <div class="img-text">
-                <h4>Stock App</h4>
-                <div class="project-links">
-                  <a
-                    href="https://github.com/tjmurphy95/covid-dashboard"
-                    target="_blank"
-                  >
-                    <p>source</p>
-                    <i class="fa-solid fa-code"></i>
-                  </a>
-                  <a
-                    href="https://covid-dashboard-teal.vercel.app/"
-                    target="_blank"
-                  >
-                    <p>live</p>
-                    <i class="fa-solid fa-bolt"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="project-item">
-              <img src="/public/xx.png" alt="Polling App" />
+              <img src="/public/poll.png" alt="Poll App" />
               <div class="img-text">
                 <h4>Polling App</h4>
                 <div class="project-links">
@@ -435,7 +487,55 @@
                 </div>
               </div>
             </div>
+            <div class="project-item">
+              <img src="/public/xx.png" alt="Stock App" />
+              <div class="img-text">
+                <h4>Stock App</h4>
+                <div class="project-links">
+                  <a
+                    href="https://github.com/tjmurphy95/covid-dashboard"
+                    target="_blank"
+                  >
+                    <p>source</p>
+                    <i class="fa-solid fa-code"></i>
+                  </a>
+                  <a
+                    href="https://covid-dashboard-teal.vercel.app/"
+                    target="_blank"
+                  >
+                    <p>live</p>
+                    <i class="fa-solid fa-bolt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+      </section>
+      <section id="contact">
+        <h2 class="section-header">Lets Connect</h2>
+        <div class="section-wrapper">
+            <div class="section-content-center">
+            <h3>
+              Want to get in touch?
+            </h3>
+
+            <form class="contact-form">
+                <div class="form-item">
+                    <label><i class="fa-solid fa-user"></i></label><input class="form-input" type="text" name="name" id="name" placeholder="Full Name">
+                </div>
+                <div class="form-item">
+                <label><i class="fa-solid fa-envelope"></i></label><input class="form-input" type="email" name="email" id="email" placeholder="example@example.com">
+            </div>
+            <div class="form-item">
+                <label><i class="fa-solid fa-phone"></i></label><input class="form-input" type="number" name="phone" id="phone" placeholder="+61 XXX XXX XXX">
+            </div>
+            <div class="form-item">
+                <label><i class="fa-solid fa-comment"></i></label><textarea class="form-input" name="" id="" cols="30" rows="10"></textarea>
+            </div>
+                <button class="submit-button" type="submit">submit</button>
+            </form>
+
         </div>
       </section>
     </main>
