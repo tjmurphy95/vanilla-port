@@ -192,7 +192,7 @@
         gap: 10px;
       }
       .project-item {
-        box-shadow: 0 0 4px 1px lightgray;
+        box-shadow: 0 0 4px 1px #0f172a;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -200,7 +200,7 @@
       }
 
       .project-item:hover {
-        box-shadow: 0 0 4px 2px #0f172a;
+        box-shadow: 0 0 4px 2px lightgray;
       }
 
       .project-grid img {
@@ -315,6 +315,21 @@
         border: none;
       }
 
+      button{
+    width: 20%;
+    height: 10%;
+    border: none;
+    outline: none;
+    background: #0f172a;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 40px;
+    text-align: center;
+    box-shadow: 0 6px 20px -5px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
 
 
 
@@ -438,7 +453,8 @@
             </div>
           </div>
         </div>
-      </section> -->
+      </section> --> 
+      <!-- projects section -->
       <section id="projects">
         <h2 class="section-header">Projects</h2>
         <div class="section-wrapper">
@@ -521,7 +537,7 @@
               Want to get in touch?
             </h3>
 
-            <form class="contact-form">
+            <form class="contact-form" onsubmit="return false">
                 <div class="form-item">
                     <label><i class="fa-solid fa-user"></i></label><input class="form-input" type="text" name="name" id="name" placeholder="Full Name">
                 </div>
@@ -534,7 +550,7 @@
             <div class="form-item">
                 <label><i class="fa-solid fa-comment"></i></label><textarea class="form-input" name="" id="" cols="30" rows="10"></textarea>
             </div>
-                <button class="submit-button" type="submit">submit</button>
+                <button class="submit-button" type="submit" onclick="submitInfo()">submit</button>
             </form>
 
         </div>
